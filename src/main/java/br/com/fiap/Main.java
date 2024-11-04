@@ -13,14 +13,12 @@ import java.net.URI;
  */
 public class Main {
 
-
     public static String getBaseUri() {
-
         String port = System.getenv("PORT");
         if (port == null || port.isEmpty()) {
             port = "8080";
         }
-        return "http://0.0.0.0:" + port + "/";
+        return "http://localhost:" + port + "/";
     }
 
     /**
@@ -28,7 +26,6 @@ public class Main {
      * @return Grizzly HTTP server.
      */
     public static HttpServer startServer() {
-
         final ResourceConfig rc = new ResourceConfig().packages("br.com.fiap");
         rc.register(new CORSFilter());
 
@@ -48,4 +45,3 @@ public class Main {
         server.stop();
     }
 }
-
